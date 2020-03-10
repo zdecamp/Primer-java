@@ -168,7 +168,7 @@ public class primer {
 			ended = (double) 3;
 		}
 		endfile.close();
-		System.out.print("Ended with: " + ended + " in " + durration + " seconds.");
+		System.out.print("Ended with: " + ended + " in " + durration/60 + " minutes " + Math.floor(((durration/60)%60)*60) + " seconds.");
 		
 				
 	}
