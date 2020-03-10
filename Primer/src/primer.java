@@ -1,6 +1,7 @@
 import java.io.RandomAccessFile;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
+import java.io.File;
 import java.util.Scanner;
 
 
@@ -21,6 +22,22 @@ public class primer {
 	
 	// Read number from lastNumber.txt to resume work
 		double start;
+		try {
+			File lnum = new File("src\\lastNumber.txt");
+			File primes = new File("src\\primes.txt");
+			if(lnum.createNewFile()) {
+				BufferedWriter lnStart = new BufferedWriter(new FileWriter("src\\lastNumber.txt"));
+			    lnStart.write(String.valueOf(3));
+			    lnStart.close();
+				System.out.println("lastNumber.txt has been created");
+			}
+			if(primes.createNewFile()) {
+				System.out.println("primes.txt has been created");
+			}
+			
+		}catch(Exception e) {
+			  //  Block of code to handle errors
+		}
 		RandomAccessFile file = new RandomAccessFile("src\\lastNumber.txt", "r");
 		String r;
 		if ((r = file.readLine()) != null) {
